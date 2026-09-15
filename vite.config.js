@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 // base: './' garante que o build funcione tanto na raiz de um domínio
 export default defineConfig({
-  base: '/pulsefinance/',
+  base: '/CarteiraDigitalPulse/',
   build: {
     outDir: 'dist',
     sourcemap: true
