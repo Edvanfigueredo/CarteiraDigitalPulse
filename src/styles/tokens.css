@@ -1,0 +1,100 @@
+/*
+  DESIGN SYSTEM — PULSE FINANCE
+  Fonte única de verdade para cores, espaçamento, raio, sombra e breakpoints.
+  Cores preservadas do design já aprovado (base.css original do protótipo).
+*/
+:root {
+  /* Cores — tema escuro (padrão) */
+  --bg-body: #0b0f19;
+  --bg-sidebar: #111827;
+  --bg-card: #1f2937;
+  --bg-input: #374151;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f9fafb;
+  --text-muted: #9ca3af;
+  --primary: #7c3aed;
+  --primary-hover: #6d28d9;
+  --primary-light: rgba(124, 58, 237, 0.15);
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+  --accent-amber: #f59e0b;
+  --accent-blue: #2563eb;
+  --accent-purple: #8b5cf6;
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+
+  /* Raio */
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
+  --radius-xs: 8px;
+
+  /* Espaçamento (escala 4px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Tipografia */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-size-base: 0.9rem;
+
+  /* Altura mínima de toque confortável (Material/HIG) */
+  --tap-target: 44px;
+
+  /* Z-index */
+  --z-sidebar: 100;
+  --z-overlay: 90;
+  --z-modal: 200;
+  --z-toast: 300;
+}
+
+[data-theme='light'] {
+  --bg-body: #f8fafc;
+  --bg-sidebar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-input: #f1f5f9;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --primary: #7c3aed;
+  --primary-hover: #6d28d9;
+  --primary-light: rgba(124, 58, 237, 0.08);
+  --accent-green: #059669;
+  --accent-red: #dc2626;
+  --accent-amber: #d97706;
+  --accent-blue: #2563eb;
+  --accent-purple: #7c3aed;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Paletas alternativas de acessibilidade (aplicadas via data-palette) */
+[data-palette='azul'] {
+  --bg-body: #0b1d36; --bg-sidebar: #102a4c; --bg-card: #163860; --bg-input: #214a78;
+  --primary: #38bdf8; --primary-hover: #0ea5e9; --primary-light: rgba(56,189,248,.18);
+  --text: #eff8ff; --text-muted: #b5d5ef;
+}
+[data-palette='rosa'] {
+  --bg-body: #2a1022; --bg-sidebar: #3d1633; --bg-card: #552044; --bg-input: #6d2d5a;
+  --primary: #f472b6; --primary-hover: #ec4899; --primary-light: rgba(244,114,182,.18);
+  --text: #fff1f8; --text-muted: #f4bfd8;
+}
+[data-palette='branco'] {
+  --bg-body: #f8fafc; --bg-sidebar: #ffffff; --bg-card: #ffffff; --bg-input: #f1f5f9;
+  --primary: #2563eb; --primary-hover: #1d4ed8; --primary-light: rgba(37,99,235,.10);
+  --text: #0f172a; --text-muted: #475569;
+}
+
+/* Modo daltônico: paleta azul/laranja de alto contraste para status */
+[data-colorblind='true'] {
+  --accent-green: #0284c7;
+  --accent-red: #ea580c;
+  --accent-amber: #ca8a04;
+}
+
+/* Breakpoints como custom properties documentais (uso real via media query abaixo) */
+/* mobile: 0–599px (padrão / mobile-first)   */
+/* tablet: 600–959px                          */
+/* desktop: >=960px                           */
