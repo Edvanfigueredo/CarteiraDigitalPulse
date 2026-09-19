@@ -1,0 +1,23 @@
+{
+  "name": "pulse-finance",
+  "version": "2.0.0",
+  "description": "Pulse — Gestão Financeira Pessoal. Aplicação educacional, mobile-first, 100% local (IndexedDB), sem backend.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.4",
+    "pdfjs-dist": "^4.6.82",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "fake-indexeddb": "^6.2.5",
+    "jsdom": "^30.0.1",
+    "vite": "^5.4.8",
+    "vitest": "^2.1.9"
+  }
+}
