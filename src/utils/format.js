@@ -1,8 +1,5 @@
 // Utilitários de formatação — únicos no projeto, evita duplicação de Intl.* espalhada.
-<<<<<<< HEAD
 import { isPrivacyActive } from './privacy.js';
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 
 const currencyFormatters = {};
 export function money(value, currency = 'BRL') {
@@ -10,7 +7,6 @@ export function money(value, currency = 'BRL') {
   if (!currencyFormatters[currency]) {
     currencyFormatters[currency] = new Intl.NumberFormat('pt-BR', { style: 'currency', currency });
   }
-<<<<<<< HEAD
   const formatted = currencyFormatters[currency].format(v);
   // Modo Privado (seção 26): mascara só os dígitos, preservando símbolo da
   // moeda e separadores — assim "R$ 1.234,56" vira "R$ •.•••,••" em vez de
@@ -27,8 +23,6 @@ export function moneyRaw(value, currency = 'BRL') {
   if (!currencyFormatters[currency]) {
     currencyFormatters[currency] = new Intl.NumberFormat('pt-BR', { style: 'currency', currency });
   }
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   return currencyFormatters[currency].format(v);
 }
 

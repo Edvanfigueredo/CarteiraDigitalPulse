@@ -5,7 +5,6 @@
    contrário. Isso evita a herança de layout desktop no mobile.
    ============================================================ */
 
-<<<<<<< HEAD
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,9 +13,6 @@
   -ms-overflow-style: none;
 }
 *::-webkit-scrollbar { display: none; width: 0; height: 0; }
-=======
-* { box-sizing: border-box; margin: 0; padding: 0; }
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 
 html, body {
   width: 100%;
@@ -347,7 +343,6 @@ tbody td:not([data-label])::before { content: none; }
 .import-type-card i { font-size: 1.4rem; color: var(--primary); }
 .import-type-card.selected { border-color: var(--primary); background: var(--primary-light); }
 
-<<<<<<< HEAD
 /* Calendário financeiro */
 .calendar-nav { display: flex; align-items: center; justify-content: center; gap: var(--space-4); margin-bottom: var(--space-3); }
 .calendar-month-label { font-weight: 800; font-size: 1.15rem; text-transform: capitalize; text-align: center; }
@@ -392,9 +387,6 @@ tbody td:not([data-label])::before { content: none; }
   .calendar-day .chip { font-size: 0.68rem; }
 }
 
-
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 /* Utilitário */
 .text-muted { color: var(--text-muted); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

@@ -3,27 +3,19 @@
 
 export function emptyDataset() {
   return {
-<<<<<<< HEAD
     schemaVersion: 3,
-=======
-    schemaVersion: 2,
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
     categorias: [],
     contas: [],
     cartoes: [],
     transacoes: [],
     limites: [],   // orçamentos por categoria
     metas: [],
-<<<<<<< HEAD
     patrimonio: [],       // apenas bens/ativos a partir da v3 — passivos viraram "dividas"
     patrimonioHistorico: [], // snapshots mensais de patrimônio líquido (seção 21)
     dividas: [],          // dívidas com ou sem parcelamento (v3)
     rendasRecorrentes: [], // salário e outras receitas recorrentes (v3)
     despesasRecorrentes: [], // aluguel, internet etc. (v3)
     carreira: [], // histórico de cargo/empresa/salário (v3, opcional — seção 25)
-=======
-    patrimonio: [],
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
     months: []     // meses criados explicitamente (além do mês corrente, sempre disponível)
   };
 }
@@ -60,7 +52,6 @@ export function demoDataset() {
     { id: 3, desc: 'Internet Fibra (demonstração)', val: 129.9, tipo: 'despesa', date: `${month}-20`, contaId: 'conta_2', cat: 'Moradia', tag: '', status: 'pendente' }
   ];
   base.limites = [{ id: 1, cat: 'Alimentação', val: 1200.0 }];
-<<<<<<< HEAD
   base.metas = [{
     id: 1, desc: 'Reserva de Emergência (demonstração)', target: 15000.0, current: 4270.5,
     aporteMensal: 500, prazo: null, categoria: 'Reserva', prioridade: 'alta', contaId: 'conta_1'
@@ -101,13 +92,6 @@ export function demoDataset() {
       transacaoId: null
     }))
   }];
-=======
-  base.metas = [{ id: 1, desc: 'Reserva de Emergência (demonstração)', target: 15000.0, current: 4270.5 }];
-  base.patrimonio = [
-    { id: 1, tipo: 'ativo', nome: 'Ações / FIIs (demonstração)', val: 8500.0 },
-    { id: 2, tipo: 'passivo', nome: 'Financiamento Veículo (demonstração)', val: 14000.0 }
-  ];
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   return base;
 }
 
@@ -121,13 +105,9 @@ export function defaultMeta() {
       palette: 'preto',
       fontScale: 100,
       colorMode: 'padrao',
-<<<<<<< HEAD
       currency: 'BRL',
       privacyMode: false,
       alertLeadDays: 1 // 0 = no dia, -1 = desativado
-=======
-      currency: 'BRL'
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
     }
   };
 }
@@ -139,8 +119,6 @@ export function validateDataset(data) {
     if (key === 'schemaVersion') continue;
     if (Array.isArray(safe[key])) safe[key] = Array.isArray(data[key]) ? data[key] : [];
   }
-<<<<<<< HEAD
-
   // Migração v2 → v3: patrimônio misturava ativos e passivos genéricos.
   // Passivos antigos viram dívidas simples (sem parcelamento) para não
   // perder dado nenhum do usuário; ativos continuam em `patrimonio`.
@@ -166,7 +144,5 @@ export function validateDataset(data) {
     });
   }
 
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   return safe;
 }

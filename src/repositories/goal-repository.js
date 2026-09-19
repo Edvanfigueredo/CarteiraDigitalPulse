@@ -2,7 +2,6 @@ import { getData, mutate } from '../core/store.js';
 
 export function listGoals() { return getData().metas; }
 
-<<<<<<< HEAD
 export async function addGoal({ desc, target, current, prazo, aporteMensal, categoria, prioridade, contaId }) {
   await mutate((data) => {
     data.metas.push({
@@ -16,11 +15,6 @@ export async function addGoal({ desc, target, current, prazo, aporteMensal, cate
       prioridade: prioridade || 'media',
       contaId: contaId || null
     });
-=======
-export async function addGoal({ desc, target, current }) {
-  await mutate((data) => {
-    data.metas.push({ id: Date.now(), desc, target: Number(target) || 0, current: Number(current) || 0 });
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
     return data;
   });
 }
@@ -28,7 +22,6 @@ export async function addGoal({ desc, target, current }) {
 export async function removeGoal(id) {
   await mutate((data) => { data.metas = data.metas.filter((m) => m.id !== id); return data; });
 }
-<<<<<<< HEAD
 
 // Registra um aporte real: soma ao valor atual da meta (não substitui).
 export async function addContribution(id, amount) {
@@ -38,5 +31,3 @@ export async function addContribution(id, amount) {
     return data;
   });
 }
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078

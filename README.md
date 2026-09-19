@@ -92,7 +92,6 @@ manual de "copiar configurações". Apenas as transações são específicas de
 cada mês, e nunca são copiadas ou apagadas automaticamente ao criar um novo
 mês.
 
-<<<<<<< HEAD
 ## Dívidas, recorrências e Calendário Financeiro (Fase 1 de evolução)
 
 O Pulse funciona como um sistema conectado: cadastrar uma dívida ou uma
@@ -122,9 +121,6 @@ sendo um valor informado manualmente pelo usuário — pagar uma parcela não o
 recalcula automaticamente (o mesmo já valia para transações comuns antes
 desta evolução). Uma contabilidade de partida dobrada real é um passo maior,
 fora do escopo desta fase.
-
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 ## Importação de dados
 
 Três formatos, escolhidos explicitamente pelo usuário (não é mais uma
@@ -163,7 +159,6 @@ despesas, período) e uma verificação de possíveis duplicados.
 - Dados salvos apenas no IndexedDB do navegador, neste dispositivo.
 - Nunca são armazenados: senha bancária, CVV, credenciais ou tokens.
 - "Exportar dados", "Importar dados" e "Resetar dados" ficam em Ajustes.
-<<<<<<< HEAD
 - **Modo Privado** (ícone de olho no topo, ou em Ajustes): mascara os
   dígitos de todo valor monetário exibido na tela. Não se aplica ao
   relatório em PDF nem às exportações (CSV/JSON) — gerar um relatório é uma
@@ -172,8 +167,6 @@ despesas, período) e uma verificação de possíveis duplicados.
   orçamentos estourados e metas com prazo apertado. O prazo de antecedência
   é configurável (1/2/3 dias, no dia, ou desativado); "Desativado" desliga
   todos os tipos de alerta, incluindo os de orçamento.
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 
 ## Roadmap (não implementado nesta versão)
 
@@ -184,8 +177,6 @@ despesas, período) e uma verificação de possíveis duplicados.
 - Edição de tipo/categoria linha a linha na tela de conciliação antes de
   confirmar a importação (hoje a correção é feita depois, na tela de
   Transações).
-<<<<<<< HEAD
-
 ### Próximas fases da evolução "Carteira Digital" (ainda não implementadas)
 
 Todas as 30 seções do pedido original foram endereçadas ao longo das fases
@@ -206,5 +197,3 @@ O que continua fora do escopo, por decisão explícita do pedido original:
 backend/API real com sincronização entre dispositivos, e autenticação de
 verdade (a arquitetura em camadas já está preparada para isso quando fizer
 sentido).
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078

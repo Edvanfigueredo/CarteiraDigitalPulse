@@ -1,6 +1,5 @@
 import { listMonths } from '../../repositories/month-repository.js';
 import { emitPrintableReport, copyChatGptPrompt, openChatGpt, CHATGPT_PROMPT } from '../../services/report-service.js';
-<<<<<<< HEAD
 import { buildAnnualReport } from '../../services/annual-report-service.js';
 import { money, monthLabel } from '../../utils/format.js';
 import { escapeHtml } from '../../utils/sanitize.js';
@@ -13,14 +12,6 @@ export function renderReports(root) {
   const yearsAvailable = Array.from(new Set(months.map((m) => m.slice(0, 4)))).sort().reverse();
   if (!yearsAvailable.includes(String(annualYear))) annualYear = Number(yearsAvailable[0] || new Date().getFullYear());
   const annual = buildAnnualReport(annualYear);
-=======
-import { monthLabel } from '../../utils/format.js';
-import { escapeHtml } from '../../utils/sanitize.js';
-import { showToast } from '../components/toast.js';
-
-export function renderReports(root) {
-  const months = listMonths();
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 
   root.innerHTML = `
     <div class="card">
@@ -35,7 +26,6 @@ export function renderReports(root) {
     </div>
 
     <div class="card">
-<<<<<<< HEAD
       <div class="card-header">
         <h3 class="card-title">Meu Ano Financeiro</h3>
         <select id="annual-year" style="width:auto;">${yearsAvailable.map((y) => `<option value="${y}" ${Number(y) === annualYear ? 'selected' : ''}>${y}</option>`).join('') || `<option value="${annualYear}">${annualYear}</option>`}</select>
@@ -55,8 +45,6 @@ export function renderReports(root) {
     </div>
 
     <div class="card">
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
       <div class="card-header"><h3 class="card-title">Analisar com ChatGPT</h3></div>
       <p class="text-muted" style="margin-bottom:12px;">O Pulse não envia seus dados automaticamente para nenhuma IA. Gere o relatório em PDF acima, copie o roteiro de análise abaixo e anexe o arquivo manualmente no ChatGPT.</p>
       <div class="card" style="background:var(--bg-input);max-height:260px;overflow-y:auto;">
@@ -71,20 +59,13 @@ export function renderReports(root) {
   document.getElementById('btn-emit').addEventListener('click', () => {
     emitPrintableReport(document.getElementById('report-month').value);
   });
-<<<<<<< HEAD
   document.getElementById('annual-year').addEventListener('change', (e) => {
     annualYear = Number(e.target.value);
     renderReports(root);
   });
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   document.getElementById('btn-copy-prompt').addEventListener('click', async () => {
     const ok = await copyChatGptPrompt();
     showToast(ok ? 'Roteiro copiado para a área de transferência.' : 'Não foi possível copiar automaticamente. Selecione o texto manualmente.', ok ? 'success' : 'error');
   });
   document.getElementById('btn-open-chatgpt').addEventListener('click', openChatGpt);
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078

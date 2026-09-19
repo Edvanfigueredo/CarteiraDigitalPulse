@@ -1,13 +1,8 @@
 import { totalsForMonth, categoryBreakdown } from './insight-service.js';
 import { listGoals } from '../repositories/goal-repository.js';
-<<<<<<< HEAD
 import { listAssets } from '../repositories/networth-repository.js';
 import { outstandingBalance } from '../repositories/debt-repository.js';
 import { moneyRaw as money, monthLabel } from '../utils/format.js';
-=======
-import { listLiabilities, listAssets } from '../repositories/networth-repository.js';
-import { money, monthLabel } from '../utils/format.js';
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 import { escapeHtml } from '../utils/sanitize.js';
 
 export const CHATGPT_PROMPT = `Você é um analista financeiro pessoal. Analise o relatório financeiro que será fornecido abaixo e produza um diagnóstico claro, realista e prático sobre a situação financeira do usuário.
@@ -93,11 +88,7 @@ function buildReportHtml(yyyyMm) {
   const categories = categoryBreakdown(entries, 'despesa');
   const goals = listGoals();
   const assets = listAssets();
-<<<<<<< HEAD
   const debtTotal = outstandingBalance();
-=======
-  const liabilities = listLiabilities();
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   const label = monthLabel(yyyyMm);
 
   const catRows = categories.length
@@ -112,10 +103,6 @@ function buildReportHtml(yyyyMm) {
     ? goals.map((g) => `<tr><td>${escapeHtml(g.desc)}</td><td>${money(g.current)} / ${money(g.target)}</td></tr>`).join('')
     : '<tr><td colspan="2">Nenhuma meta cadastrada.</td></tr>';
 
-<<<<<<< HEAD
-=======
-  const debtTotal = liabilities.reduce((a, p) => a + (p.val || 0), 0);
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   const assetTotal = assets.reduce((a, p) => a + (p.val || 0), 0);
 
   return `

@@ -1,9 +1,6 @@
 import { getMeta, updatePreferences } from '../core/store.js';
 import { clamp } from '../utils/format.js';
-<<<<<<< HEAD
 import { setPrivacyMode } from '../utils/privacy.js';
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 
 export function getPreferences() { return getMeta().preferences; }
 
@@ -23,17 +20,13 @@ export function applyPreferencesToDom() {
   root.setAttribute('data-palette', prefs.palette);
   root.setAttribute('data-colorblind', prefs.colorMode === 'daltonico' ? 'true' : 'false');
   document.body.style.fontSize = `${clamp(prefs.fontScale, 80, 130)}%`;
-<<<<<<< HEAD
   setPrivacyMode(prefs.privacyMode);
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 }
 
 export async function toggleTheme() {
   const next = getPreferences().theme === 'dark' ? 'light' : 'dark';
   await setPreference('theme', next);
 }
-<<<<<<< HEAD
 
 // A flag de privacidade é atualizada de forma síncrona ANTES de persistir/
 // notificar: o `updatePreferences` dispara um re-render imediatamente (via
@@ -44,5 +37,3 @@ export async function togglePrivacyMode() {
   setPrivacyMode(next);
   await setPreference('privacyMode', next);
 }
-=======
->>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
