@@ -3,15 +3,21 @@ import { updateMeta } from '../../core/store.js';
 
 const NAV_ITEMS = [
   { view: 'dashboard', icon: 'fa-chart-pie', label: 'Visão Geral' },
+<<<<<<< HEAD
   { view: 'calendario', icon: 'fa-calendar-check', label: 'Calendário' },
   { view: 'previsao', icon: 'fa-arrow-trend-up', label: 'Previsão' },
   { view: 'saude', icon: 'fa-heart-pulse', label: 'Saúde Financeira' },
+=======
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   { view: 'transacoes', icon: 'fa-arrow-right-arrow-left', label: 'Transações' },
   { view: 'contas', icon: 'fa-building-columns', label: 'Contas e Cartões' },
   { view: 'categorias', icon: 'fa-tags', label: 'Categorias' },
   { view: 'planejamento', icon: 'fa-bullseye', label: 'Orçamentos & Metas' },
   { view: 'patrimonio', icon: 'fa-scale-balanced', label: 'Bens & Dívidas' },
+<<<<<<< HEAD
   { view: 'carreira', icon: 'fa-briefcase', label: 'Carreira' },
+=======
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   { view: 'relatorios', icon: 'fa-chart-line', label: 'Relatórios' },
   { view: 'meses', icon: 'fa-calendar-days', label: 'Histórico mensal' },
   { view: 'educacao', icon: 'fa-book-open', label: 'Aprender' },

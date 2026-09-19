@@ -4,10 +4,13 @@ import { onNavigate, currentView } from '../core/router.js';
 import { subscribe } from '../core/store.js';
 
 import { renderDashboard } from './views/dashboard-view.js';
+<<<<<<< HEAD
 import { renderCalendar } from './views/calendar-view.js';
 import { renderForecast } from './views/forecast-view.js';
 import { renderHealth } from './views/health-view.js';
 import { renderCareer } from './views/career-view.js';
+=======
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 import { renderTransactions } from './views/transactions-view.js';
 import { renderAccounts } from './views/accounts-view.js';
 import { renderCategories } from './views/categories-view.js';
@@ -22,15 +25,21 @@ import { renderSettings } from './views/settings-view.js';
 
 const VIEW_RENDERERS = {
   dashboard: renderDashboard,
+<<<<<<< HEAD
   calendario: renderCalendar,
   previsao: renderForecast,
   saude: renderHealth,
+=======
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   transacoes: renderTransactions,
   contas: renderAccounts,
   categorias: renderCategories,
   planejamento: renderPlanning,
   patrimonio: renderNetWorth,
+<<<<<<< HEAD
   carreira: renderCareer,
+=======
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   relatorios: renderReports,
   meses: renderHistory,
   educacao: renderLearn,

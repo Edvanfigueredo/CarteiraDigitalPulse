@@ -1,14 +1,21 @@
 import { listBudgets, addBudget, removeBudget, spentForCategory } from '../../repositories/budget-repository.js';
+<<<<<<< HEAD
 import { listGoals, addGoal, removeGoal, addContribution } from '../../repositories/goal-repository.js';
 import { listCategories } from '../../repositories/category-repository.js';
 import { listAccounts } from '../../repositories/account-repository.js';
 import { listTransactions } from '../../repositories/transaction-repository.js';
 import { projectedCompletionLabel, requiredMonthlyContribution } from '../../services/goal-service.js';
+=======
+import { listGoals, addGoal, removeGoal } from '../../repositories/goal-repository.js';
+import { listCategories } from '../../repositories/category-repository.js';
+import { listTransactions } from '../../repositories/transaction-repository.js';
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 import { money, percent } from '../../utils/format.js';
 import { escapeHtml } from '../../utils/sanitize.js';
 import { emptyStateHtml } from '../components/empty-state.js';
 import { showToast } from '../components/toast.js';
 
+<<<<<<< HEAD
 const PRIORITY_LABEL = { alta: 'Alta', media: 'Média', baixa: 'Baixa' };
 
 function destinoOptions() {
@@ -16,6 +23,8 @@ function destinoOptions() {
   return contas.join('') || '<option value="">Nenhuma conta cadastrada</option>';
 }
 
+=======
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 export function renderPlanning(root) {
   const budgets = listBudgets();
   const goals = listGoals();
@@ -47,6 +56,7 @@ export function renderPlanning(root) {
       <div class="card-header"><h3 class="card-title">Metas Financeiras</h3></div>
       <form id="goal-form" class="form-grid" style="margin-bottom:16px;">
         <div class="field"><label for="goal-desc">Descrição da meta</label><input id="goal-desc" required placeholder="Ex: Reserva de emergência" /></div>
+<<<<<<< HEAD
         <div class="field"><label for="goal-categoria">Categoria</label><input id="goal-categoria" placeholder="Ex: Reserva, Viagem" /></div>
         <div class="field"><label for="goal-target">Valor alvo</label><input id="goal-target" type="number" step="0.01" required placeholder="0,00" /></div>
         <div class="field"><label for="goal-current">Valor já guardado</label><input id="goal-current" type="number" step="0.01" placeholder="0,00" /></div>
@@ -59,6 +69,20 @@ export function renderPlanning(root) {
         <div class="form-actions" style="grid-column:1/-1;"><button class="btn btn-primary" type="submit">+ Adicionar Meta</button></div>
       </form>
       ${goals.length ? goals.map((g) => renderGoalCard(g)).join('') : emptyStateHtml({ icon: 'fa-flag', title: 'Você ainda não possui metas', text: 'Crie sua primeira meta financeira.' })}
+=======
+        <div class="field"><label for="goal-target">Valor alvo</label><input id="goal-target" type="number" step="0.01" required placeholder="0,00" /></div>
+        <div class="field"><label for="goal-current">Valor já guardado</label><input id="goal-current" type="number" step="0.01" placeholder="0,00" /></div>
+        <div class="form-actions" style="grid-column:1/-1;"><button class="btn btn-primary" type="submit">+ Adicionar Meta</button></div>
+      </form>
+      ${goals.length ? goals.map((g) => {
+        const pct = g.target > 0 ? Math.min(percent(g.current, g.target), 100) : 0;
+        return `<div class="progress-row" style="margin-bottom:14px;">
+          <div class="progress-labels"><span>${escapeHtml(g.desc)}</span><span>${money(g.current)} / ${money(g.target)}</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:${pct}%;background:var(--accent-green)"></div></div>
+          <button class="btn btn-ghost btn-sm" type="button" data-remove-goal="${g.id}" style="align-self:flex-end;">Remover</button>
+        </div>`;
+      }).join('') : emptyStateHtml({ icon: 'fa-flag', title: 'Você ainda não possui metas', text: 'Crie sua primeira meta financeira.' })}
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
     </div>`;
 
   document.getElementById('budget-form').addEventListener('submit', async (e) => {
@@ -69,6 +93,7 @@ export function renderPlanning(root) {
   });
   document.getElementById('goal-form').addEventListener('submit', async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     await addGoal({
       desc: document.getElementById('goal-desc').value,
       categoria: document.getElementById('goal-categoria').value,
@@ -79,11 +104,15 @@ export function renderPlanning(root) {
       prioridade: document.getElementById('goal-prioridade').value,
       contaId: document.getElementById('goal-conta').value
     });
+=======
+    await addGoal({ desc: document.getElementById('goal-desc').value, target: document.getElementById('goal-target').value, current: document.getElementById('goal-current').value });
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
     showToast('Meta criada.', 'success');
     renderPlanning(root);
   });
   root.querySelectorAll('[data-remove-budget]').forEach((btn) => btn.addEventListener('click', async () => { await removeBudget(Number(btn.dataset.removeBudget)); renderPlanning(root); }));
   root.querySelectorAll('[data-remove-goal]').forEach((btn) => btn.addEventListener('click', async () => { await removeGoal(Number(btn.dataset.removeGoal)); renderPlanning(root); }));
+<<<<<<< HEAD
 
   goals.forEach((g) => {
     const form = document.getElementById(`contrib-form-${g.id}`);
@@ -136,4 +165,6 @@ function renderGoalCard(g) {
         <p id="sim-result-${g.id}" class="text-muted" style="font-size:0.78rem;margin-top:4px;"></p>
       </div>
     </div>`;
+=======
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 }

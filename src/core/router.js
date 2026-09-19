@@ -4,8 +4,13 @@
 const listeners = new Set();
 
 export const VIEWS = [
+<<<<<<< HEAD
   'dashboard', 'calendario', 'previsao', 'saude', 'transacoes', 'contas', 'categorias', 'planejamento',
   'patrimonio', 'carreira', 'relatorios', 'meses', 'educacao', 'inteligencia',
+=======
+  'dashboard', 'transacoes', 'contas', 'categorias', 'planejamento',
+  'patrimonio', 'relatorios', 'meses', 'educacao', 'inteligencia',
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   'importacao', 'configuracoes'
 ];
 

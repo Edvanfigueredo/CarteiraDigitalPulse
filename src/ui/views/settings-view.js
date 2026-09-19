@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { getPreferences, setPreference, setFontScale, applyPreferencesToDom, togglePrivacyMode } from '../../services/preferences-service.js';
+=======
+import { getPreferences, setPreference, setFontScale, applyPreferencesToDom } from '../../services/preferences-service.js';
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 import { isDemoActive, activateDemo, deactivateDemo, clearDemoData, wipeReal } from '../../services/demo-service.js';
 import { exportJson, exportCsv } from '../../services/export-service.js';
 import { getMeta, updateMeta } from '../../core/store.js';
@@ -54,6 +58,7 @@ export function renderSettings(root, { onProfileReset }) {
     </div>
 
     <div class="card">
+<<<<<<< HEAD
       <div class="card-header"><h3 class="card-title">Modo Privado</h3></div>
       <p class="text-muted" style="margin-bottom:12px;font-size:0.85rem;">Oculta valores financeiros na tela (mantém símbolos e formato, mascara os números). Útil ao usar o Pulse em público ou durante uma apresentação. Também dá pra ativar rapidamente pelo ícone de olho no topo da tela.</p>
       <div class="form-actions">
@@ -79,6 +84,8 @@ export function renderSettings(root, { onProfileReset }) {
     </div>
 
     <div class="card">
+=======
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
       <div class="card-header"><h3 class="card-title">Modo de Demonstração</h3></div>
       <p class="text-muted" style="margin-bottom:12px;font-size:0.85rem;">Use dados fictícios para testar o Pulse sem afetar seus dados reais. ${demoActive ? '<strong>Modo demonstração está ativo agora.</strong>' : ''}</p>
       <div class="form-actions">
@@ -111,8 +118,11 @@ export function renderSettings(root, { onProfileReset }) {
   document.getElementById('pref-palette').addEventListener('change', async (e) => { await setPreference('palette', e.target.value); applyPreferencesToDom(); });
   document.getElementById('pref-colormode').addEventListener('change', async (e) => { await setPreference('colorMode', e.target.value); applyPreferencesToDom(); });
   document.getElementById('pref-currency').addEventListener('change', async (e) => { await setPreference('currency', e.target.value); showToast('Moeda atualizada.', 'success'); });
+<<<<<<< HEAD
   document.getElementById('btn-privacy-toggle').addEventListener('click', async () => { await togglePrivacyMode(); renderSettings(root, { onProfileReset }); });
   document.getElementById('pref-alert-lead').addEventListener('change', async (e) => { await setPreference('alertLeadDays', Number(e.target.value)); showToast('Preferência de alerta atualizada.', 'success'); });
+=======
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   document.getElementById('font-minus').addEventListener('click', async () => { await setFontScale(-10); applyPreferencesToDom(); renderSettings(root, { onProfileReset }); });
   document.getElementById('font-plus').addEventListener('click', async () => { await setFontScale(10); applyPreferencesToDom(); renderSettings(root, { onProfileReset }); });
 

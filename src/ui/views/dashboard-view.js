@@ -2,18 +2,23 @@ import { listAccounts } from '../../repositories/account-repository.js';
 import { listBudgets, spentForCategory } from '../../repositories/budget-repository.js';
 import { listGoals } from '../../repositories/goal-repository.js';
 import { listTransactions } from '../../repositories/transaction-repository.js';
+<<<<<<< HEAD
 import { listAssets } from '../../repositories/networth-repository.js';
 import { outstandingBalance } from '../../repositories/debt-repository.js';
 import { totalsForMonth, categoryBreakdown, evolutionSeries, buildInsights } from '../../services/insight-service.js';
 import { getMonthEvents } from '../../services/calendar-service.js';
 import { computePulseScore } from '../../services/score-service.js';
 import { getUpcomingAlerts } from '../../services/alert-service.js';
+=======
+import { totalsForMonth, categoryBreakdown, evolutionSeries, buildInsights } from '../../services/insight-service.js';
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 import { money, percent, currentMonth, monthLabel } from '../../utils/format.js';
 import { escapeHtml } from '../../utils/sanitize.js';
 import { emptyStateHtml } from '../components/empty-state.js';
 import { barIncomeExpense, doughnutCategories, lineEvolution } from '../components/charts.js';
 import { navigate } from '../../core/router.js';
 
+<<<<<<< HEAD
 const SCORE_FACTOR_LABELS = { orcamento: 'Orçamento', dividas: 'Dívidas', reserva: 'Reserva', metas: 'Metas', consistencia: 'Consistência' };
 
 function scoreColor(score) {
@@ -22,6 +27,8 @@ function scoreColor(score) {
   return 'var(--accent-red)';
 }
 
+=======
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 export function renderDashboard(root) {
   const month = currentMonth();
   const { income, expenses, balance, entries } = totalsForMonth(month);
@@ -31,6 +38,7 @@ export function renderDashboard(root) {
   const goals = listGoals();
   const insights = buildInsights(month);
   const allTx = listTransactions();
+<<<<<<< HEAD
   const pulseScore = computePulseScore();
   const alerts = getUpcomingAlerts();
   const netWorth = listAssets().reduce((a, p) => a + p.val, 0) - outstandingBalance();
@@ -88,6 +96,16 @@ export function renderDashboard(root) {
     <div class="card">
       <div class="card-header"><h3 class="card-title">Saúde Financeira</h3><button class="btn btn-ghost btn-sm" type="button" data-goto="saude">Ver detalhes</button></div>
       <p class="text-muted" style="font-size:0.82rem;">Indicadores de reserva, dívidas, comprometimento da renda e poupança, todos explicados — acesse a tela completa para o detalhamento.</p>
+=======
+  const pending = entries.filter((t) => t.status === 'pendente').slice(0, 5);
+
+  root.innerHTML = `
+    <div class="grid-4">
+      <div class="card"><p class="card-eyebrow">Saldo total em contas</p><h2 class="stat-value">${money(totalBalance)}</h2></div>
+      <div class="card"><p class="card-eyebrow">Receitas do mês</p><h2 class="stat-value val-plus">${money(income)}</h2></div>
+      <div class="card"><p class="card-eyebrow">Despesas do mês</p><h2 class="stat-value val-minus">${money(expenses)}</h2></div>
+      <div class="card"><p class="card-eyebrow">Balanço líquido</p><h2 class="stat-value ${balance >= 0 ? 'val-plus' : 'val-minus'}">${money(balance)}</h2></div>
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
     </div>
 
     ${entries.length === 0 ? `
@@ -139,7 +157,11 @@ export function renderDashboard(root) {
 
     ${pending.length ? `
     <div class="card">
+<<<<<<< HEAD
       <div class="card-header"><h3 class="card-title">Próximos compromissos</h3><button class="btn btn-ghost btn-sm" type="button" data-goto="calendario">Ver calendário</button></div>
+=======
+      <div class="card-header"><h3 class="card-title">Contas a pagar / receber</h3></div>
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
       <div class="table-wrap"><table><thead><tr><th>Vencimento</th><th>Descrição</th><th>Tipo</th><th>Valor</th></tr></thead><tbody>
         ${pending.map((t) => `<tr>
           <td data-label="Vencimento">${escapeHtml(t.date)}</td>

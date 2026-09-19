@@ -50,6 +50,7 @@ export function doughnutCategories(canvasId, labels, data) {
   });
 }
 
+<<<<<<< HEAD
 export function lineForecast(canvasId, labels, values, label = 'Saldo previsto', color = null) {
   const c = themeColors();
   const lineColor = color || c.blue;
@@ -64,6 +65,8 @@ export function lineForecast(canvasId, labels, values, label = 'Saldo previsto',
   });
 }
 
+=======
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
 export function lineEvolution(canvasId, labels, incomeSeries, expenseSeries) {
   const c = themeColors();
   return renderChart(canvasId, {

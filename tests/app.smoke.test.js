@@ -118,13 +118,18 @@ describe('Pulse Finance — fluxo principal', () => {
     expect(realCountAfter).toBe(realCountBefore);
   });
 
+<<<<<<< HEAD
   it('monta o app completo e navega por todas as telas sem exceções — com dados esparsos e, na sequência, com o modo demonstração (dataset cheio: dívida parcelada, metas, recorrências)', async () => {
     const { activateDemo } = await import('../src/services/demo-service.js');
+=======
+  it('monta o app completo e navega por todas as telas sem lançar exceções', async () => {
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
     const { mountApp } = await import('../src/ui/render.js');
     const { navigate, VIEWS } = await import('../src/core/router.js');
 
     expect(() => mountApp()).not.toThrow();
 
+<<<<<<< HEAD
     const checkAllViews = () => {
       for (const view of VIEWS) {
         expect(() => navigate(view)).not.toThrow();
@@ -143,5 +148,15 @@ describe('Pulse Finance — fluxo principal', () => {
     // penduradas, apontando para um DOM que o próximo teste já limpou.
     await activateDemo();
     checkAllViews(); // agora com o dataset cheio de demonstração
+=======
+    for (const view of VIEWS) {
+      expect(() => navigate(view)).not.toThrow();
+      const html = document.getElementById('view-container').innerHTML;
+      // Critério de aceitação: nunca mostrar erro técnico cru ao usuário
+      expect(html).not.toMatch(/\bundefined\b/);
+      expect(html).not.toMatch(/\bNaN\b/);
+      expect(html).not.toContain('[object Object]');
+    }
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   });
 });

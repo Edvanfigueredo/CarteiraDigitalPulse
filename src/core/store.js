@@ -33,6 +33,7 @@ export async function initStore() {
   if (!loadedReal) loadedReal = localFallback.get('dataset:real');
   if (!loadedDemo) loadedDemo = localFallback.get('dataset:demo');
 
+<<<<<<< HEAD
   meta = loadedMeta && typeof loadedMeta === 'object'
     // Merge raso no nível de topo, mas profundo em `preferences`: sem isso,
     // um usuário que já tinha dados salvos antes de uma preferência nova
@@ -40,6 +41,9 @@ export async function initStore() {
     // objeto `preferences` salvo sobrescreveria o default inteiro.
     ? { ...defaultMeta(), ...loadedMeta, preferences: { ...defaultMeta().preferences, ...(loadedMeta.preferences || {}) } }
     : defaultMeta();
+=======
+  meta = loadedMeta && typeof loadedMeta === 'object' ? { ...defaultMeta(), ...loadedMeta } : defaultMeta();
+>>>>>>> 84bf2b54eda975d7547784d19f636e0a8fc32078
   datasets.real = loadedReal ? validateDataset(loadedReal) : emptyDataset();
   datasets.demo = loadedDemo ? validateDataset(loadedDemo) : demoDataset();
 
